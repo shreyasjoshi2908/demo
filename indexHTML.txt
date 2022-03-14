@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{%block base_block%}
+<h1> Welcome to index Page </h1>
+{% if data %}
+<table align="center">
+{%endif%}
+   <th style="font-size:15px;">name</th>
+   <th style="font-size:15px;">roll</th>
+   <th style="font-size:15px;">address</th>
+   <th style="font-size:15px;">email</th>
+   <th style="font-size:15px;">record</th>
+   <th style="font-size:15px;">date</th>
+{% for d in data%}
+        <tr>
+   <td style="font-size:15px;">{{d.name}}</td>
+   <td style="font-size:15px;">{{d.roll}}</td>
+   <td style="font-size:15px;">{{d.address}}</td>
+   <td style="font-size:15px;">{{d.email}}</td>
+   <td style="font-size:15px;">{{d.record}}</td>
+   <td style="font-size:15px;">{{d.date}}</td>
+   <td><a href="update/{{d.roll}}"> Update</a> <a href="delete/{{d.roll}}">Delete</a> </td>
+        </tr>
+
+{%endfor%}
+</table><br><br>
+<a href="create/" class="btn btn-primary btn-lg"> Insert New Employee </a>
+{%endblock%}
+
+
+</body>
+</html>
+
